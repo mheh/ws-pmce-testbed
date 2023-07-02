@@ -6,3 +6,5 @@ uses https://github.com/jhoughjr/vapor.git
 
     both tbclient and tbserver depend on websocket-kit via the vapor fork
     node server used as reference target.
+
+    Convention is client apps run on 8081 and servers run on 8080.
