@@ -1,6 +1,11 @@
 import Vapor
 
-final class AsyncHostPMCECommand: AsyncCommand {
+final class AsyncHostPMCECommand: AnyCommand {
+    func run(using context: inout ConsoleKit.CommandContext) throws {
+        context.console.info("This is sync.")
+
+    }
+    
     
     static let name = "pmce"
     
