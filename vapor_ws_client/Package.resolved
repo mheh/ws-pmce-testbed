@@ -24,7 +24,7 @@
       "location" : "https://github.com/adam-fowler/compress-nio.git",
       "state" : {
         "revision" : "0223872798b41bfdd017f3b1fb467030c4b2c042",
-        "version" : "0.6.0"
+        "version" : "1.0.0"
       }
     },
     {
@@ -122,8 +122,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-nio.git",
       "state" : {
-        "revision" : "6213ba7a06febe8fef60563a4a7d26a4085783cf",
-        "version" : "2.54.0"
+        "revision" : "a2e487b77f17edbce9a65f2b7415f2f479dc8e48",
+        "version" : "2.57.0"
       }
     },
     {
@@ -177,7 +177,7 @@
       "location" : "https://github.com/jhoughjr/vapor.git",
       "state" : {
         "branch" : "main",
-        "revision" : "c90c34ca41f664319382e42e36b6a40abfd210a7"
+        "revision" : "ae217cb655dd4c983fe772b323c47e930705ba33"
       }
     },
     {
@@ -186,7 +186,7 @@
       "location" : "https://github.com/jhoughjr/websocket-kit.git",
       "state" : {
         "branch" : "main",
-        "revision" : "03e4a1fb140f48b2c5188ab01df1eb8b006b209b"
+        "revision" : "35d8ce5565dfa931b4c58e267e638737b4565f7d"
       }
     }
   ],

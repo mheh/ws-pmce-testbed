@@ -7,7 +7,7 @@ const ws = new WebSocket("ws://localhost:8080/test", {
 ws.on("error", console.error);
 
 ws.on("open", function open() {
-  console.log("opened.")
+  console.log("opened websocket.")
 
   let messageString = `SupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSup
   SupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSup
@@ -1118,7 +1118,6 @@ SupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSup
   SupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSup
   SupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSup
   
-
 `
   console.log("sending " + messageString.length + " bytes.");
   ws.send(messageString);

@@ -21,30 +21,32 @@ func routes(_ app: Application) throws {
         app.logger.info("vapor_ws_server: - should ugrade callback requested configs  \(requestedConfigs.debugDescription)")
         
        /// These headers configure the PMCE on the websocket passed to onUpgrade.
+        /// If they passed a pmce config we can parse, return it in to accept the config. 
         return requestedConfigs.first?.headers() ?? [:]
-        
     } onUpgrade: { req, webSoc in
         
         // Our WebSocket's PMCE is configured and it will handle compressing
         // and decompressing behind the scenes for text and binary messages.
-        // If no headers where retuned above, no compression will be used.
+        // If no headers were returned above, no compression will be used.
+        // wireshark is the beset way to verify usage.
         webSoc.eventLoop.execute {
             req.logger.info("Request upgraded to WebSocket \(req.headers) ")
-
             if webSoc.pmce != nil {
-                req.logger.info("with PMCE.\n\(webSoc.pmce.debugDescription)")
+                webSoc.pmce?.logging = true
+                req.logger.info("with PMCE.\n\(webSoc.pmce?.description)")
+
             }else {
                 req.logger.info("without PMCE")
             }
             req.logger.info("Registering handlers.")
           
             webSoc.onText({ ws, text in
-                print("tbserver: Received text message: \(text.count) bytes")
+                print("vapor-ws-server: Received text message: \(text.count) bytes")
             })
             
             webSoc.onBinary( { ws, bin in
     
-                app.logger.info("tbserver: got bin (as String):\(bin.readableBytes) bytes")
+                app.logger.info("vapor-ws-server: got bin (as String):\(bin.readableBytes) bytes")
             })
         }
     }
