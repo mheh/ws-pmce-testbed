@@ -8,16 +8,19 @@ public func configure(_ app: Application) async throws {
     try routes(app)
     
     /// Create a config to requeset be used for communications.
-    let config = PMCE.DeflateConfig(clientCfg: .init(takeover:.noTakeover,
-                                                     maxWindowBits: 15 ),
+    let config = PMCE.PMCEConfig(clientCfg: .init(takeover:.noTakeover,
+                                                     maxWindowBits: 15,
+                                                     zlib: .maxRamMaxComp ),
                                     serverCfg: .init(takeover: .noTakeover,
-                                                     maxWindowBits: 15))
-                        
+                                                     maxWindowBits: 15,
+                                                     zlib: .maxRamMaxComp))
+    print("vapor_ws_client: asking for PMCE \(config)!")
+
     /// Connect with the client api with the config headers (and any others you may want).
     ///  if you don't want compression, omit the config headers.
     ///  Try it by commenting out line 19 and connect to a PMCE capable websocket server.
             try await WebSocket.connect(to: testURL,
-                                        headers: config.headers(),
+                                        headers: config.headers(xt:true),
                                         on: app.eventLoopGroup) { (ws) in
                 
                 print("vapor_ws_client: CONNECTED to \(testURL)!")
