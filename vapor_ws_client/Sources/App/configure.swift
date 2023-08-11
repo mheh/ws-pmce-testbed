@@ -8,10 +8,10 @@ public func configure(_ app: Application) async throws {
     try routes(app)
     
     /// Create a config to requeset be used for communications.
-    let config = PMCE.PMCEConfig(clientCfg: .init(takeover:.noTakeover,
+    let config = PMCE.PMCEConfig(clientCfg: .init(takeover:.takeover,
                                                      maxWindowBits: 15,
                                                      zlib: .maxRamMaxComp ),
-                                    serverCfg: .init(takeover: .noTakeover,
+                                    serverCfg: .init(takeover: .takeover,
                                                      maxWindowBits: 15,
                                                      zlib: .maxRamMaxComp))
     print("vapor_ws_client: asking for PMCE \(config)!")
@@ -20,7 +20,7 @@ public func configure(_ app: Application) async throws {
     ///  if you don't want compression, omit the config headers.
     ///  Try it by commenting out line 19 and connect to a PMCE capable websocket server.
             try await WebSocket.connect(to: testURL,
-                                        headers: config.headers(xt:true),
+                                        headers: config.headers(),
                                         on: app.eventLoopGroup) { (ws) in
                 
                 print("vapor_ws_client: CONNECTED to \(testURL)!")

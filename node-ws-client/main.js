@@ -1,7 +1,19 @@
 import WebSocket from "ws";
 
 const ws = new WebSocket("ws://localhost:8080/test", {
-  perMessageDeflate: true
+  perMessageDeflate: {
+    zlibDeflateOptions: {
+      // See zlib defaults.
+      memLevel: 5,
+      level: 5
+    },
+    //zlibInflateOptions: {
+    //  chunkSize: 10 * 1024
+    //},
+    // Other options settable:
+    clientNoContextTakeover: true, // Defaults to negotiated value.
+    serverNoContextTakeover: true,
+  }
 });
 
 ws.on("error", console.error);
