@@ -8,12 +8,12 @@ public func configure(_ app: Application) async throws {
     try routes(app)
     
     /// Create a config to requeset be used for communications.
-    let config = PMCE.PMCEConfig(clientCfg: .init(takeover:.noTakeover,
+    let config = PMCE.PMCEConfig(clientCfg: .init(takeover:.takeover,
                                                      maxWindowBits: 15,
-                                                     zlib: .maxRamMaxComp ),
-                                    serverCfg: .init(takeover: .noTakeover,
+                                                     zlib: .midRamMidComp ),
+                                    serverCfg: .init(takeover: .takeover,
                                                      maxWindowBits: 15,
-                                                     zlib: .maxRamMaxComp))
+                                                     zlib: .midRamMidComp))
     print("vapor_ws_client: asking for PMCE \(config)!")
 
     /// Connect with the client api with the config headers (and any others you may want).

@@ -1,0 +1,68 @@
+[ DEBUG ] Could not load .env.development file: open(file:oFlag:mode:): No such file or directory (errno: 2) (Vapor/DotEnv.swift:123)
+[ DEBUG ] Could not load .env file: open(file:oFlag:mode:): No such file or directory (errno: 2) (Vapor/DotEnv.swift:123)
+vapor_ws_client: asking for PMCE PMCEConfig {
+  client : DeflateConfig {
+takeOver:"takeover"
+maxWindowBits:Optional(15)
+zlib:ZlibConf{mem : 5,
+cmp : 5}},
+  server : DeflateConfig {
+takeOver:"takeover"
+maxWindowBits:Optional(15)
+zlib:ZlibConf{mem : 5,
+cmp : 5}}!
+[ DEBUG ] getting configs from [("Sec-WebSocket-Extensions", "permessage-deflate;client_no_context_takeover;client_max_window_bits=15;server_no_context_takeover;server_max_window_bits=15"), ("Upgrade", "websocket"), ("Sec-WebSocket-Accept", "NmVqBwido4nAZ68YsA0y7j0Wv1A="), ("Connection", "upgrade"), ("date", "Tue, 15 Aug 2023 02:22:57 GMT")] (WebSocketKit/PMCE.swift:93)
+[ DEBUG ] headerValue permessage-deflate;client_no_context_takeover;client_max_window_bits=15;server_no_context_takeover;server_max_window_bits=15 (WebSocketKit/PMCE.swift:110)
+[ DEBUG ] sane = client_no_context_takeover (WebSocketKit/PMCE.swift:158)
+[ DEBUG ] sane = client_max_window_bits (WebSocketKit/PMCE.swift:158)
+[ DEBUG ] sane = server_no_context_takeover (WebSocketKit/PMCE.swift:158)
+[ DEBUG ] sane = server_max_window_bits (WebSocketKit/PMCE.swift:158)
+[ DEBUG ] Offer permessage-deflate;client_no_context_takeover;client_max_window_bits=15;server_no_context_takeover;server_max_window_bits=15 (WebSocketKit/PMCE.swift:131)
+[ DEBUG ] arg (sto: WebSocketKit.PMCE.PMCEConfig.ContextTakeoverMode.noTakeover, cto: WebSocketKit.PMCE.PMCEConfig.ContextTakeoverMode.noTakeover, sbits: Optional(15), cbits: Optional(15), sml: nil, cml: nil, scl: nil, ccl: nil) (WebSocketKit/PMCE.swift:132)
+[ DEBUG ] extending ... (WebSocketKit/PMCE.swift:476)
+[ DEBUG ] client (WebSocketKit/PMCE.swift:500)
+[ DEBUG ] window size: 13 (WebSocketKit/PMCE.swift:503)
+[ DEBUG ] compressor ZlibConfiguration(windowSize: 13, compressionLevel: 5, memoryLevel: 5, strategy: CompressNIO.ZlibConfiguration.Strategy.huffmanOnly) (WebSocketKit/PMCE.swift:521)
+[ DEBUG ] decompressor ZlibConfiguration(windowSize: 13, compressionLevel: 5, memoryLevel: 5, strategy: CompressNIO.ZlibConfiguration.Strategy.huffmanOnly) (WebSocketKit/PMCE.swift:522)
+[ DEBUG ] extending ... (WebSocketKit/PMCE.swift:476)
+[ DEBUG ] client (WebSocketKit/PMCE.swift:500)
+[ DEBUG ] window size: 13 (WebSocketKit/PMCE.swift:503)
+[ DEBUG ] compressor ZlibConfiguration(windowSize: 13, compressionLevel: 5, memoryLevel: 5, strategy: CompressNIO.ZlibConfiguration.Strategy.huffmanOnly) (WebSocketKit/PMCE.swift:521)
+[ DEBUG ] decompressor ZlibConfiguration(windowSize: 13, compressionLevel: 5, memoryLevel: 5, strategy: CompressNIO.ZlibConfiguration.Strategy.huffmanOnly) (WebSocketKit/PMCE.swift:522)
+[ DEBUG ] PMCE: stopping streams... (WebSocketKit/PMCE.swift:546)
+vapor_ws_client: CONNECTED to ws://localhost:8080/test!
+vapor_ws_client: with PMCEConfig {
+  client : DeflateConfig {
+takeOver:"noTakeover"
+maxWindowBits:Optional(15)
+zlib:ZlibConf{mem : 5,
+cmp : 5}},
+  server : DeflateConfig {
+takeOver:"noTakeover"
+maxWindowBits:Optional(15)
+zlib:ZlibConf{mem : 5,
+cmp : 5}}
+vapor_ws_client: adding TEXT, BIN handlers...
+vapor_ws_client: preparing test message...
+vapor_ws_client: sending binary message: 6705 bytes.
+[ DEBUG ] compressing 6705 bytes for WebSocketOpcode.binary (WebSocketKit/PMCE.swift:566)
+[ DEBUG ] compressed 6705 to 1768 bytes @ 3 ratio from (WebSocketKit/PMCE.swift:580)
+[ DEBUG ]  ZlibConf{mem : 5,
+cmp : 5} (WebSocketKit/PMCE.swift:585)
+[ DEBUG ] in 0.0001220703125 (WebSocketKit/PMCE.swift:588)
+[ DEBUG ] resetting compressor stream (WebSocketKit/PMCE.swift:592)
+[ NOTICE ] Server starting on http://0.0.0.0:8081 (Vapor/HTTPServer.swift:298)
+[ DEBUG ] PMCE: created mask key WebSocketMaskingKey(_key: (225, 207, 218, 219)) . (WebSocketKit/PMCE.swift:702)
+vapor_ws_client: sending text message: 6705 bytes.
+[ DEBUG ] compressing 6705 bytes for WebSocketOpcode.text (WebSocketKit/PMCE.swift:566)
+[ DEBUG ] compressed 6705 to 1768 bytes @ 3 ratio from (WebSocketKit/PMCE.swift:580)
+[ DEBUG ]  ZlibConf{mem : 5,
+cmp : 5} (WebSocketKit/PMCE.swift:585)
+[ DEBUG ] in 0.00011801719665527344 (WebSocketKit/PMCE.swift:588)
+[ DEBUG ] resetting compressor stream (WebSocketKit/PMCE.swift:592)
+[ DEBUG ] PMCE: created mask key WebSocketMaskingKey(_key: (197, 147, 8, 32)) . (WebSocketKit/PMCE.swift:702)
+
+[ DEBUG ] Application shutting down (Vapor/Application.swift:132)
+[ DEBUG ] Requesting HTTP server shutdown (Vapor/HTTPServer.swift:316)
+[ DEBUG ] HTTP server shutting down (Vapor/HTTPServer.swift:322)
+[ DEBUG ] PMCE: stopping streams... (WebSocketKit/PMCE.swift:546)
