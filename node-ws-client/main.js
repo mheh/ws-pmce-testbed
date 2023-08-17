@@ -20,7 +20,8 @@ ws.on("error", console.error);
 
 ws.on("open", function open() {
   console.log("opened websocket.")
-
+  ws.binaryType = 'arraybuffer';
+  
   let messageString = `SupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSup
   SupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSup
   SupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSup
@@ -1138,5 +1139,12 @@ SupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSup
 });
 
 ws.on("message", function(event) {
-  console.log(event);
+    console.log("MESSAGE:")
+  if (event instanceof ArrayBuffer) {
+          // binary frame
+          console.log("BIN: " + event.byteLength + " bytes.");
+      } else {
+          // text frame
+          console.log("TEXT:" + event.length + " bytes");
+      }
 });
