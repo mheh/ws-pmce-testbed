@@ -34,6 +34,7 @@ func routes(_ app: Application) throws {
         // and decompressing behind the scenes for text and binary messages.
         // If no headers were returned above, no compression will be used.
         // wireshark is the beset way to verify usage.
+        req.logger.info("client connected.")
         webSoc.eventLoop.execute {
             req.logger.info("Request upgraded to WebSocket with headers:\n\(req.headers) ")
             if let pmce = webSoc.pmce {

@@ -11,8 +11,8 @@ const ws = new WebSocket("ws://localhost:8080/test", {
     //  chunkSize: 10 * 1024
     //},
     // Other options settable:
-    clientNoContextTakeover: true, // Defaults to negotiated value.
-    serverNoContextTakeover: true,
+//    clientNoContextTakeover: true, // Defaults to negotiated value.
+//    serverNoContextTakeover: true,
   }
 });
 
@@ -1133,6 +1133,8 @@ SupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSupSup
 `
   console.log("sending " + messageString.length + " bytes.");
   ws.send(messageString);
+  console.log("sending again to see takeover effect.");
+  ws.send(messageString + messageString);
 });
 
 ws.on("message", function(event) {
