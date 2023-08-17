@@ -15,8 +15,8 @@ const pmceOpts = {
       chunkSize: 1024
     },
     // Other options settable:
-    clientNoContextTakeover: true, // Defaults to negotiated value.
-    serverNoContextTakeover: true, // Defaults to negotiated value.
+    // clientNoContextTakeover: true, // Defaults to negotiated value.
+    // serverNoContextTakeover: true, // Defaults to negotiated value.
     serverMaxWindowBits: 15, // Defaults to negotiated value.
     // Below options specified as default values.
     //concurrencyLimit: 10, // Limits zlib concurrency for perf.
@@ -49,14 +49,10 @@ wss.on("connection", (ws, req) => {
     
       if (event instanceof ArrayBuffer) {
           // binary frame
-          console.log("recieved bin frame: " + event.byteLength + " bytes.");
-          console.log(event);
-          console.log("_____________end");  
+          console.log("received bin frame: " + event.byteLength + " bytes.");
       } else {
           // text frame
-          console.log("recieved text frame:" + event.length + " bytes");
-          console.log(event.toString());
-          console.log("_____________end");
+          console.log("received text frame:" + event.length + " bytes");
         }
       });
  
