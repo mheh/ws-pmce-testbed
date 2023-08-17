@@ -1,0 +1,100 @@
+[ DEBUG ] Could not load .env.development file: open(file:oFlag:mode:): No such file or directory (errno: 2) (Vapor/DotEnv.swift:123)
+[ DEBUG ] Could not load .env file: open(file:oFlag:mode:): No such file or directory (errno: 2) (Vapor/DotEnv.swift:123)
+Supported PMCE config headers [("Sec-WebSocket-Extensions", "permessage-deflate;client_no_context_takeover;client_max_window_bits=15;server_no_context_takeover;server_max_window_bits=15")]
+[ INFO ] vapor-ws-server: supported PMCE for websockets PMCEConfig {
+  client : DeflateConfig {
+takeOver:"noTakeover"
+maxWindowBits:Optional(15)
+zlib:ZlibConf{mem : 5,
+cmp : 5}},
+  server : DeflateConfig {
+takeOver:"noTakeover"
+maxWindowBits:Optional(15)
+zlib:ZlibConf{mem : 5,
+cmp : 5}} (App/routes.swift:58)
+[ NOTICE ] Server starting on http://0.0.0.0:8080 (Vapor/HTTPServer.swift:298)
+[ INFO ] GET /test [request-id: 7873517E-56E8-4380-AB72-03D840A88911] (Vapor/RouteLoggingMiddleware.swift:14)
+[ DEBUG ] getting configs from [("Sec-WebSocket-Version", "13"), ("Sec-WebSocket-Key", "zL6091a+kEsP5CqBX/Zj9w=="), ("Connection", "Upgrade"), ("Upgrade", "websocket"), ("Sec-WebSocket-Extensions", "permessage-deflate; server_no_context_takeover; client_no_context_takeover; client_max_window_bits"), ("Host", "localhost:8080")] (WebSocketKit/PMCE.swift:93)
+[ DEBUG ] headerValue permessage-deflate; server_no_context_takeover; client_no_context_takeover; client_max_window_bits (WebSocketKit/PMCE.swift:110)
+[ DEBUG ] sane = server_no_context_takeover (WebSocketKit/PMCE.swift:158)
+[ DEBUG ] sane = client_no_context_takeover (WebSocketKit/PMCE.swift:158)
+[ DEBUG ] sane = client_max_window_bits (WebSocketKit/PMCE.swift:158)
+[ DEBUG ] unrecognized first split from setting  client_max_window_bits (WebSocketKit/PMCE.swift:254)
+[ DEBUG ] Offer permessage-deflate; server_no_context_takeover; client_no_context_takeover; client_max_window_bits (WebSocketKit/PMCE.swift:131)
+[ DEBUG ] arg (sto: WebSocketKit.PMCE.PMCEConfig.ContextTakeoverMode.noTakeover, cto: WebSocketKit.PMCE.PMCEConfig.ContextTakeoverMode.noTakeover, sbits: nil, cbits: nil, sml: nil, cml: nil, scl: nil, ccl: nil) (WebSocketKit/PMCE.swift:132)
+[ INFO ] vapor_ws_server: - should ugrade callback requested configs  [PMCEConfig {
+client:takeOver : noTakeover,
+windowBits : Optional(15),
+zlib : ZlibConf{mem : 5,
+cmp : 5}
+server:takeOver : noTakeover,
+windowBits : Optional(15),
+zlib : ZlibConf{mem : 5,
+cmp : 5}
+}] (App/routes.swift:25)
+[ DEBUG ] getting configs from [("Sec-WebSocket-Version", "13"), ("Sec-WebSocket-Key", "zL6091a+kEsP5CqBX/Zj9w=="), ("Connection", "Upgrade"), ("Upgrade", "websocket"), ("Sec-WebSocket-Extensions", "permessage-deflate; server_no_context_takeover; client_no_context_takeover; client_max_window_bits"), ("Host", "localhost:8080")] (WebSocketKit/PMCE.swift:93)
+[ DEBUG ] headerValue permessage-deflate; server_no_context_takeover; client_no_context_takeover; client_max_window_bits (WebSocketKit/PMCE.swift:110)
+[ DEBUG ] sane = server_no_context_takeover (WebSocketKit/PMCE.swift:158)
+[ DEBUG ] sane = client_no_context_takeover (WebSocketKit/PMCE.swift:158)
+[ DEBUG ] sane = client_max_window_bits (WebSocketKit/PMCE.swift:158)
+[ DEBUG ] unrecognized first split from setting  client_max_window_bits (WebSocketKit/PMCE.swift:254)
+[ DEBUG ] Offer permessage-deflate; server_no_context_takeover; client_no_context_takeover; client_max_window_bits (WebSocketKit/PMCE.swift:131)
+[ DEBUG ] arg (sto: WebSocketKit.PMCE.PMCEConfig.ContextTakeoverMode.noTakeover, cto: WebSocketKit.PMCE.PMCEConfig.ContextTakeoverMode.noTakeover, sbits: nil, cbits: nil, sml: nil, cml: nil, scl: nil, ccl: nil) (WebSocketKit/PMCE.swift:132)
+[ DEBUG ] extending ... (WebSocketKit/PMCE.swift:476)
+[ DEBUG ] server (WebSocketKit/PMCE.swift:479)
+[ DEBUG ] window size: 13 (WebSocketKit/PMCE.swift:482)
+[ DEBUG ] compressor ZlibConfiguration(windowSize: 13, compressionLevel: 5, memoryLevel: 5, strategy: CompressNIO.ZlibConfiguration.Strategy.huffmanOnly) (WebSocketKit/PMCE.swift:497)
+[ DEBUG ] decompressor ZlibConfiguration(windowSize: 13, compressionLevel: 5, memoryLevel: 5, strategy: CompressNIO.ZlibConfiguration.Strategy.huffmanOnly) (WebSocketKit/PMCE.swift:498)
+[ DEBUG ] extending ... (WebSocketKit/PMCE.swift:476)
+[ DEBUG ] server (WebSocketKit/PMCE.swift:479)
+[ DEBUG ] window size: 13 (WebSocketKit/PMCE.swift:482)
+[ DEBUG ] compressor ZlibConfiguration(windowSize: 13, compressionLevel: 5, memoryLevel: 5, strategy: CompressNIO.ZlibConfiguration.Strategy.huffmanOnly) (WebSocketKit/PMCE.swift:497)
+[ DEBUG ] decompressor ZlibConfiguration(windowSize: 13, compressionLevel: 5, memoryLevel: 5, strategy: CompressNIO.ZlibConfiguration.Strategy.huffmanOnly) (WebSocketKit/PMCE.swift:498)
+[ DEBUG ] PMCE: stopping streams... (WebSocketKit/PMCE.swift:546)
+[ INFO ] Request upgraded to WebSocket with headers:
+[("Sec-WebSocket-Version", "13"), ("Sec-WebSocket-Key", "zL6091a+kEsP5CqBX/Zj9w=="), ("Connection", "Upgrade"), ("Upgrade", "websocket"), ("Sec-WebSocket-Extensions", "permessage-deflate; server_no_context_takeover; client_no_context_takeover; client_max_window_bits"), ("Host", "localhost:8080")]  [request-id: 7873517E-56E8-4380-AB72-03D840A88911] (App/routes.swift:38)
+[ INFO ] with per-message compression extensions.
+enabled : true,
+extendedSocketType : server,
+config : PMCEConfig {
+  client : DeflateConfig {
+takeOver:"noTakeover"
+maxWindowBits:Optional(15)
+zlib:ZlibConf{mem : 5,
+cmp : 5}},
+  server : DeflateConfig {
+takeOver:"noTakeover"
+maxWindowBits:Optional(15)
+zlib:ZlibConf{mem : 5,
+cmp : 5}}, [request-id: 7873517E-56E8-4380-AB72-03D840A88911] (App/routes.swift:41)
+[ INFO ] Registering handlers for text, binary messages.. [request-id: 7873517E-56E8-4380-AB72-03D840A88911] (App/routes.swift:45)
+[ DEBUG ] PMCE: unmasking WebSocketFrame(_storage: NIOWebSocket.WebSocketFrame.(unknown context at $5598ade77f80)._Storage, maskKey: Optional(NIOWebSocket.WebSocketMaskingKey(_key: (125, 228, 148, 139))), firstByte: 193) (WebSocketKit/PMCE.swift:718)
+[ DEBUG ] PMCE: unmaksing/decomp/unmasking frame WebSocketOpcode.text data... (WebSocketKit/PMCE.swift:680)
+[ DEBUG ] PMCE: unmaskedData ByteBuffer { readerIndex: 0, writerIndex: 1013, readableBytes: 1013, capacity: 1024, storageCapacity: 1024, slice: _ByteBufferSlice { 0..<1024 }, storage: 0x00007f78240165c0 (1024 bytes) } (WebSocketKit/PMCE.swift:682)
+[ DEBUG ] PMCE: unmasking WebSocketFrame(_storage: NIOWebSocket.WebSocketFrame.(unknown context at $5598ade77f80)._Storage, maskKey: Optional(NIOWebSocket.WebSocketMaskingKey(_key: (125, 228, 148, 139))), firstByte: 193) (WebSocketKit/PMCE.swift:718)
+[ DEBUG ] PMCE: unmaksed frame .data ByteBuffer { readerIndex: 0, writerIndex: 1013, readableBytes: 1013, capacity: 1024, storageCapacity: 1024, slice: _ByteBufferSlice { 0..<1024 }, storage: 0x00007f78240165c0 (1024 bytes) } (WebSocketKit/PMCE.swift:684)
+[ DEBUG ] PMCE: decompressing  1013 bytes for WebSocketOpcode.text (WebSocketKit/PMCE.swift:635)
+[ DEBUG ] PMCE: config: PMCEConfig {
+  client : DeflateConfig {
+takeOver:"noTakeover"
+maxWindowBits:Optional(15)
+zlib:ZlibConf{mem : 5,
+cmp : 5}},
+  server : DeflateConfig {
+takeOver:"noTakeover"
+maxWindowBits:Optional(15)
+zlib:ZlibConf{mem : 5,
+cmp : 5}} (WebSocketKit/PMCE.swift:637)
+[ DEBUG ] deompressed 1013 to 95851 bytes @ 94 ratio from (WebSocketKit/PMCE.swift:647)
+[ DEBUG ]  ZlibConf{mem : 5,
+cmp : 5} (WebSocketKit/PMCE.swift:650)
+[ DEBUG ] in 0.0004960298538208008 (WebSocketKit/PMCE.swift:655)
+[ DEBUG ] PMCE: resetting decompressoer stream. (WebSocketKit/PMCE.swift:659)
+[ DEBUG ] PMCE: unmasking WebSocketFrame(_storage: NIOWebSocket.WebSocketFrame.(unknown context at $5598ade77f80)._Storage, maskKey: nil, firstByte: 129) (WebSocketKit/PMCE.swift:718)
+[ DEBUG ] PMCE: tried to unmask a frame that isnt already masked. (WebSocketKit/PMCE.swift:720)
+[ INFO ] vapor-ws-server: Received text message: 94756 bytes [request-id: 7873517E-56E8-4380-AB72-03D840A88911] (App/routes.swift:48)
+[ DEBUG ] PMCE: stopping streams... (WebSocketKit/PMCE.swift:546)
+
+[ DEBUG ] Application shutting down (Vapor/Application.swift:132)
+[ DEBUG ] Requesting HTTP server shutdown (Vapor/HTTPServer.swift:316)
+[ DEBUG ] HTTP server shutting down (Vapor/HTTPServer.swift:322)
