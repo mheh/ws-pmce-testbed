@@ -8,10 +8,11 @@ func routes(_ app: Application) throws {
     
 
     // create a PMCE deflate config to create headers.
-    let supportedConfig = PMCE.PMCEConfig(clientCfg: .init(takeover: .noTakeover,
+    let supportedConfig = PMCE.PMCEConfig(clientCfg: .init(takeover: .takeover,
                                                               maxWindowBits: 15,
                                                               zlib: .midRamMidComp),
-                                             serverCfg: .init(takeover: .noTakeover,                       maxWindowBits: 15,
+                                             serverCfg: .init(takeover: .takeover,
+                                                              maxWindowBits: 15,
                                                               zlib: .midRamMidComp))
     
     print("Supported PMCE config headers \(supportedConfig.headers())")
@@ -26,8 +27,9 @@ func routes(_ app: Application) throws {
         
        /// These headers configure the PMCE on the websocket passed to onUpgrade.
         /// If they passed a pmce config we can parse, return it in to accept the config.
-        
-        return requestedConfigs.isEmpty ? req.headers : supportedConfig.headers(xt:true)
+        req.logger.info("\(requestedConfigs.isEmpty)")
+        req.logger.info("\(req.headers)")
+        return requestedConfigs.first?.headers() ?? supportedConfig.headers()
     } onUpgrade: { req, webSoc in
         
         // Our WebSocket's PMCE is configured and it will handle compressing

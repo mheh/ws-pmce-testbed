@@ -1,0 +1,19 @@
+we need the following things 
+
+
+(these are in the headers are are negotiated in the upgrade. the server sends back what is agreed to from my reading of the RFC.)
+
+	client_no_context_takeover	cnct	true if present otherwise takeover
+	server_no_context_takeover  snct	true if present otherwise takeover
+	client_max_window_bits      cmwb    defaults to the max of 15 i believe
+	server_max_window_bits      smwb	defaults to max of 15 i believe
+
+These the client or server configure before negotioation.
+zlib_memory_level 				zm		check zlibconfig and compress-nio for range of values shld be 5-9 if i recall
+zlib_compression_level          zc      check zlibconfig and conmpress nio for range of values shold be 5-9 if i recall.
+
+
+the non header args are what the node server imp does in its init for ws
+and what we do during the upgrade process when PMCE is init with its extendedSocketType and PMCE.DeflateConfig.
+shuld be close enough to the same to get analogous behavior.
+
