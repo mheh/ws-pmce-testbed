@@ -56,9 +56,28 @@ function parseArgs() {
 
     // Flag (bool on/off)
     if (arg.startsWith("--")) {
+      if (isValidFlag(arg)) {
+        // Valid flag
+        options[arg] = true;
+      } else {
+        // Not a valid flag, proceed anyway
+        console.log("Invalid flag " + arg);
+      }
     }
+
     // Argument (optional vars)
     else if (arg.startsWith("-")) {
+      if (isValidArgument(arg)) {
+        // Valid argument
+        if (nextArg === undefined) {
+          // Not a valid value for arg
+          throw new Error("Missing value for " + arg);
+        }
+        options[arg] = nextArg;
+      } else {
+        // Not a valid argument, proceed anyway
+        console.log("Invalid argument " + arg);
+      }
     }
   }
 
@@ -73,6 +92,18 @@ function isValidArgument(arg) {
   if (foundArg) {
     return true;
   }
+  return false;
+}
+
+/**
+ * Check if a flag is a valid flag
+ */
+function isValidFlag(flag) {
+  const foundFlag = happyFlags.find((element) => element == flag);
+  if (foundFlag) {
+    return true;
+  }
+  return false;
 }
 
 // MARK: - WebSocketServer Configuration
