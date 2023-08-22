@@ -24,6 +24,24 @@ const pmceOpts = {
   // should not be compressed if context takeover is disabled.
 };
 
+/**
+ * Argument Parser for command line
+ *
+ * Main options:
+ * <none>
+ *        - use default options
+ * --help
+ *        - print help
+ *
+ * Zlib options:
+ * --zlib_memory_level <int>
+ *        - zlib memory level (default 7)
+ * --zlib_compression_level <int>
+ *        - zlib compression level (default 5)
+ */
+function parseArgs() {}
+
+// MARK: - WebSocketServer Configuration
 const wss = new WebSocketServer({ port: 8080, perMessageDeflate: pmceOpts });
 
 // Creating connection using websocket
