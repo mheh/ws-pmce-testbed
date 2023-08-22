@@ -24,6 +24,10 @@ const pmceOpts = {
   // should not be compressed if context takeover is disabled.
 };
 
+// MARK: Argument Parsing
+const happyFlags = ["help"];
+const happyArguments = ["zlib_memory_level", "zlib_compression_level"];
+
 /**
  * Argument Parser for command line
  *
@@ -33,36 +37,42 @@ const pmceOpts = {
  * --help
  *        - print help
  *
- * Zlib options:
- * --zlib_memory_level <int>
+ * Zlib arguments:
+ * -zlib_memory_level <int>
  *        - zlib memory level (default 7)
- * --zlib_compression_level <int>
+ * -zlib_compression_level <int>
  *        - zlib compression level (default 5)
  */
 function parseArgs() {
   // Remove the first two elements (node main.js)
   const args = process.argv.slice(2);
   // Our array of options
-  var options = {};
+  var options = [];
 
   // Fill up options array
   for (let i = 0; i < args.length; i++) {
     const arg = args[i];
+    const nextArg = args[i + 1];
 
+    // Flag (bool on/off)
     if (arg.startsWith("--")) {
-      const key = arg.slice(2);
-      const value = args[i + 1];
-      options[key] = value;
-      i++; // Skip the next argument (value) since we've already processed it
-    } else if (arg.startsWith("-")) {
-      const flags = arg.slice(1);
-      for (const flag of flags) {
-        options[flag] = true;
-      }
+    }
+    // Argument (optional vars)
+    else if (arg.startsWith("-")) {
     }
   }
 
   return options;
+}
+
+/**
+ * Check if an argument is a valid argument
+ */
+function isValidArgument(arg) {
+  const foundArg = happyArguments.find((element) => element == arg);
+  if (foundArg) {
+    return true;
+  }
 }
 
 // MARK: - WebSocketServer Configuration
