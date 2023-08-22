@@ -21,15 +21,16 @@ export default function parseArgs() {
   // Remove the first two elements (node main.js)
   const args = process.argv.slice(2);
   // Our array of options
-  var options = [];
+  var options = {};
 
   // Fill up options array
   for (let i = 0; i < args.length; i++) {
-    const arg = args[i];
+    var arg = args[i];
     const nextArg = args[i + 1];
 
     // Flag (bool on/off)
     if (arg.startsWith("--")) {
+      arg = arg.slice(2); // Remove the two dashes
       if (isValidFlag(arg)) {
         // Valid flag
         options[arg] = true;
@@ -41,6 +42,7 @@ export default function parseArgs() {
 
     // Argument (optional vars)
     else if (arg.startsWith("-")) {
+      arg = arg.slice(1); // Remove the dash
       if (isValidArgument(arg)) {
         // Valid argument
         if (nextArg === undefined) {
