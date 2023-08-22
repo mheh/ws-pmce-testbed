@@ -39,7 +39,31 @@ const pmceOpts = {
  * --zlib_compression_level <int>
  *        - zlib compression level (default 5)
  */
-function parseArgs() {}
+function parseArgs() {
+  // Remove the first two elements (node main.js)
+  const args = process.argv.slice(2);
+  // Our array of options
+  var options = {};
+
+  // Fill up options array
+  for (let i = 0; i < args.length; i++) {
+    const arg = args[i];
+
+    if (arg.startsWith("--")) {
+      const key = arg.slice(2);
+      const value = args[i + 1];
+      options[key] = value;
+      i++; // Skip the next argument (value) since we've already processed it
+    } else if (arg.startsWith("-")) {
+      const flags = arg.slice(1);
+      for (const flag of flags) {
+        options[flag] = true;
+      }
+    }
+  }
+
+  return options;
+}
 
 // MARK: - WebSocketServer Configuration
 const wss = new WebSocketServer({ port: 8080, perMessageDeflate: pmceOpts });
