@@ -28,6 +28,10 @@ const pmceOpts = {
 
 /** The options found from argument parsing */
 const commandOptions = parseArgs();
+if (commandOptions.help) {
+  print("show help screen and return early");
+  // TODO: return early
+}
 console.log("commandOptions = " + JSON.stringify(commandOptions, null, 2));
 
 // MARK: - WebSocketServer Configuration
