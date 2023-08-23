@@ -5,21 +5,16 @@ func routes(_ app: Application) throws {
     
     typealias ClientConfig = PMCE.PMCEConfig.DeflateConfig
     typealias ServerConfig = PMCE.PMCEConfig.DeflateConfig
-    
-
-    // create a PMCE deflate config to create headers.
-    let supportedConfig = PMCE.PMCEConfig(clientCfg: .init(takeover: .takeover,
-                                                              maxWindowBits: 15,
-                                                              zlib: .midRamMidComp),
-                                             serverCfg: .init(takeover: .takeover,
-                                                              maxWindowBits: 15,
-                                                              zlib: .midRamMidComp))
-    
-    print("Supported PMCE config headers \(supportedConfig.headers())")
 
     /// we use this shouldUpgrade to inject our PMCE headers into the Websocket lifecyle
     app.webSocket("test",
-                  maxFrameSize: WebSocketMaxFrameSize.default) { req in
+                  maxFrameSize: .default) { req in
+        
+        let args = app.environment.commandInput.arguments
+        if args.first == "pmce" {
+            let json = args.last
+            req.logger.info("json conf is = \(json)")
+        }
         /// Grab the configs from the client if present.
         let requestedConfigs = PMCE.PMCEConfig.configsFrom(headers: req.headers)
         
@@ -27,9 +22,10 @@ func routes(_ app: Application) throws {
         
        /// These headers configure the PMCE on the websocket passed to onUpgrade.
         /// If they passed a pmce config we can parse, return it in to accept the config.
-        req.logger.info("\(requestedConfigs.isEmpty)")
-        req.logger.info("\(req.headers)")
-        return requestedConfigs.first?.headers() ?? supportedConfig.headers()
+        req.logger.info("req.headers = \(req.headers)")
+        
+        // if they requested something we cant parse, return nothing so they close the pmce request
+        return requestedConfigs.first?.headers() ?? [:]
     } onUpgrade: { req, webSoc in
         
         // Our WebSocket's PMCE is configured and it will handle compressing
@@ -58,5 +54,5 @@ func routes(_ app: Application) throws {
         }
     }
     
-    app.logger.info("vapor-ws-server: supported PMCE for websockets \(supportedConfig)")
+   
 }
