@@ -8,15 +8,13 @@ public func configure(_ app: Application) async throws {
     try routes(app)
     
     /// Create a config to requeset be used for communications.
-    let config = PMCE.PMCEConfig(clientCfg: .init(takeover:.takeover,
+    let config = PMCE.PMCEConfig(clientCfg: .init(takeover:.noTakeover,
                                                      maxWindowBits: 15,
                                                      zlib: .midRamMidComp ),
-                                    serverCfg: .init(takeover: .takeover,
+                                    serverCfg: .init(takeover: .noTakeover,
                                                      maxWindowBits: 15,
                                                      zlib: .midRamMidComp))
     print("vapor_ws_client: asking for PMCE \(config)!")
-
-    ///  TODO maybe client doesnt use headers but places its config here
     
             try await WebSocket.connect(to: testURL,
                                         configuration: .init(pmceConfig: config),

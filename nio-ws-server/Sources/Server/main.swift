@@ -17,7 +17,8 @@ import NIOHTTP1
 //import NIOWebSocket
 import WebSocketKit
 
-let websocketResponse = """
+let websocketResponse =
+ """
 <!DOCTYPE html>
 <html>
   <head>
@@ -99,6 +100,7 @@ private final class HTTPHandler: ChannelInboundHandler, RemovableChannelHandler 
         context.flush()
     }
 }
+
 //
 //private final class WebSocketTimeHandler: ChannelInboundHandler {
 //    typealias InboundIn = WebSocketFrame
@@ -201,16 +203,13 @@ private final class HTTPHandler: ChannelInboundHandler, RemovableChannelHandler 
 
 let group = MultiThreadedEventLoopGroup(numberOfThreads: 1)
 
-/*
 let upgrader = NIOWebSocketServerUpgrader(shouldUpgrade: {
     (channel: Channel, head: HTTPRequestHead) in channel.eventLoop.makeSucceededFuture(HTTPHeaders()) },
                                  upgradePipelineHandler: { (channel: Channel, reqHeaders: HTTPRequestHead) in
     print("request headers:\(reqHeaders)")
                                     channel.pipeline.addHandler(WebSocketTimeHandler())
                                  })
-*/
 
-let upgrader =
 let bootstrap = ServerBootstrap(group: group)
     // Specify backlog and enable SO_REUSEADDR for the server itself
     .serverChannelOption(ChannelOptions.backlog, value: 256)
@@ -244,7 +243,7 @@ let arg1 = arguments.dropFirst().first
 let arg2 = arguments.dropFirst(2).first
 
 let defaultHost = "localhost"
-let defaultPort = 8888
+let defaultPort = 8080
 
 enum BindTo {
     case ip(host: String, port: Int)

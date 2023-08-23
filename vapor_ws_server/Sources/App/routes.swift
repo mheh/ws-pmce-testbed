@@ -3,18 +3,17 @@ import Vapor
 ///
 func routes(_ app: Application) throws {
     
-    typealias ClientConfig = PMCE.PMCEConfig.DeflateConfig
-    typealias ServerConfig = PMCE.PMCEConfig.DeflateConfig
-
+    let conf = PMCE.PMCEConfig.DeflateConfig(takeover: .noTakeover,
+                                             maxWindowBits: 15,
+                                             zlib: .midRamMidComp)
+    
     /// we use this shouldUpgrade to inject our PMCE headers into the Websocket lifecyle
-    app.webSocket("test",
-                  maxFrameSize: .default) { req in
+    app.webSocket([PathComponent(stringLiteral: "test")],
+                  maxFrameSize: .default,
+                  pmce:.init(clientCfg: .init(takeover: .noTakeover),
+                             serverCfg: .init(takeover: .noTakeover))) { req in
         
-        let args = app.environment.commandInput.arguments
-        if args.first == "pmce" {
-            let json = args.last
-            req.logger.info("json conf is = \(json)")
-        }
+       
         /// Grab the configs from the client if present.
         let requestedConfigs = PMCE.PMCEConfig.configsFrom(headers: req.headers)
         
@@ -25,7 +24,8 @@ func routes(_ app: Application) throws {
         req.logger.info("req.headers = \(req.headers)")
         
         // if they requested something we cant parse, return nothing so they close the pmce request
-        return requestedConfigs.first?.headers() ?? [:]
+        return req.eventLoop.makeSucceededFuture(requestedConfigs.first?.headers() ?? [:])
+        
     } onUpgrade: { req, webSoc in
         
         // Our WebSocket's PMCE is configured and it will handle compressing

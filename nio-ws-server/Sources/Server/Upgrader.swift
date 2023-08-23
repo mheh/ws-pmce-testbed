@@ -135,11 +135,11 @@ public struct WebSocketUpgrader: Upgrader {
         let webSocketUpgrader = NIOWebSocketServerUpgrader(maxFrameSize: self.maxFrameSize.value, automaticErrorHandling: false, shouldUpgrade: { _, _ in
             return self.shouldUpgrade()
         }, upgradePipelineHandler: { channel, req in
-            print("vapor WebSocketUpgrader.applyUpgrade() applying upgrade for \(req)...")
             
             var wsConfig = WebSocket.Configuration()
+
             print("vapor WebSocketUpgrader.applyUpgrade() creating config from heaedrs ...")
-            wsConfig.pmceConfig = PMCE.PMCEConfig(headers: req.headers)
+            wsConfig.pmceConfig = 
             
             return WebSocket.server(on: channel,
                                     config: wsConfig,
