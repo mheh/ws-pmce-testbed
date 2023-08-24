@@ -51,6 +51,7 @@ fileprivate func testWitPMCE(app:Application) async throws {
     
     }
 }
+
 func testNoPMCE(app:Application) async throws {
     /// Server to connect to, such as vapor-ws-server
     let testPMCEURL = "ws://localhost:8080/test-no-pmce"
@@ -74,7 +75,7 @@ func testNoPMCE(app:Application) async throws {
             print("vapor_ws_client: adding TEXT, BIN handlers...")
             ws.onText ({ ws, text in
                 
-                print("vapor_ws_client: Received \(text.count) bytes of TEXT")
+                print("vapor_ws_client: Received \(text.count) bytes of TEXT \(text)")
               
             })
             
@@ -103,7 +104,7 @@ func testNoPMCE(app:Application) async throws {
 public func configure(_ app: Application) async throws {
 
     try await testWitPMCE(app:app)
-    
+    try await testNoPMCE(app: app)
     try routes(app)
 
 }
