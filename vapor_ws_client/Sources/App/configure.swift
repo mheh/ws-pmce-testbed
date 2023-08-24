@@ -12,7 +12,7 @@ public func configure(_ app: Application) async throws {
     print("vapor_ws_client: asking for PMCE \(config)!")
     
             try await WebSocket.connect(to: testURL,
-                                        configuration: .init(pmceConfig: config),
+                                        configuration: .init(pmceConfig:config),
                                         on: app.eventLoopGroup) { (ws) in
                 
                 print("vapor_ws_client: CONNECTED to \(testURL)!")
