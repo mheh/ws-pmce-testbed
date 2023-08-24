@@ -8,12 +8,7 @@ public func configure(_ app: Application) async throws {
     try routes(app)
     
     /// Create a config to requeset be used for communications.
-    let config = PMCE.PMCEConfig(clientCfg: .init(takeover:.noTakeover,
-                                                     maxWindowBits: 15,
-                                                     zlib: .midRamMidComp ),
-                                    serverCfg: .init(takeover: .noTakeover,
-                                                     maxWindowBits: 15,
-                                                     zlib: .midRamMidComp))
+    let config = PMCE.PMCEConfig(config: .init(agreedParams: .init()))
     print("vapor_ws_client: asking for PMCE \(config)!")
     
             try await WebSocket.connect(to: testURL,
@@ -22,7 +17,9 @@ public func configure(_ app: Application) async throws {
                 
                 print("vapor_ws_client: CONNECTED to \(testURL)!")
                 if let p = ws.pmce {
-                    print("vapor_ws_client: with \(p.config)")
+                    print("vapor_ws_client: with \(p)")
+                }else {
+                    print("vapor_ws_client: with NO PMCE")
                 }
                 
                 /// If the server accepted our connection should be compressed now.
