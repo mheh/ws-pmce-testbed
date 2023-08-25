@@ -19,9 +19,9 @@ jobs:
     - run: cd vapor_ws_server
     - uses: actions/checkout@v3
     - name: Build Vapor WS Server
-      run: swift build -v
+    - run: swift build -v
     - name: Text Vapor WS Server
-      run: swift test -v
+    - run: swift test -v
     - name: Enter Vapor WS Client
     - run: cd ../vapor_ws_client/
     - name: Build Vapor WS Client
