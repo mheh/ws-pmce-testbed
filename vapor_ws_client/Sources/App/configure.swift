@@ -26,13 +26,13 @@ fileprivate func testWitPMCE(app:Application) async throws {
             print("vapor_ws_client: adding TEXT, BIN handlers...")
             ws.onText ({ ws, text in
                 
-                print("vapor_ws_client: Received \(text.count) bytes of TEXT")
+                print("vapor_ws_client: Received \(text.count) bytes of TEXT \(text) from \(testPMCEURL)")
               
             })
             
             ws.onBinary ({ ws, bin in
                 
-                print("vapor_ws_client: Received \(Data(buffer:bin).count) bytes as binary")
+                print("vapor_ws_client: Received \(Data(buffer:bin).count) bytes as binary from \(testPMCEURL)")
             })
             // in another PR tangle with this one
             //ws.onclose ()
@@ -75,13 +75,13 @@ func testNoPMCE(app:Application) async throws {
             print("vapor_ws_client: adding TEXT, BIN handlers...")
             ws.onText ({ ws, text in
                 
-                print("vapor_ws_client: Received \(text.count) bytes of TEXT \(text)")
+                print("vapor_ws_client: Received \(text.count) bytes of TEXT from \(testPMCEURL) \(text)")
               
             })
             
             ws.onBinary ({ ws, bin in
                 
-                print("vapor_ws_client: Received \(Data(buffer:bin).count) bytes as binary")
+                print("vapor_ws_client: Received \(Data(buffer:bin).count) from \(testPMCEURL)  bytes as binary")
             })
             
             
@@ -100,11 +100,22 @@ func testNoPMCE(app:Application) async throws {
     
     }
 }
+
 /// To connect to WebSocket server with PMCE that supports RFC 7692.
 public func configure(_ app: Application) async throws {
-
+    
+    app.commands.use(ServerCommand(),
+                     as: "server")
+    
     try await testWitPMCE(app:app)
     try await testNoPMCE(app: app)
     try routes(app)
 
+}
+
+extension Environment {
+    /// these evironments correspond to various Agreed Parameters and Zlib setting combos
+    static var pmce: Environment {
+        .custom(name: "pmce")
+    }
 }

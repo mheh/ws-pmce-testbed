@@ -1,0 +1,127 @@
+[ codes.vapor.application ] [ DEBUG ] Could not load .env.development file: open(file:oFlag:mode:): No such file or directory (errno: 2) (Vapor/DotEnv.swift:123)
+[ codes.vapor.application ] [ TRACE ] Running on shared EventLoopGroup. Not shutting down EventLoopGroup. (Vapor/DotEnv.swift:109)
+[ codes.vapor.application ] [ DEBUG ] Could not load .env file: open(file:oFlag:mode:): No such file or directory (errno: 2) (Vapor/DotEnv.swift:123)
+[ codes.vapor.application ] [ TRACE ] Running on shared EventLoopGroup. Not shutting down EventLoopGroup. (Vapor/DotEnv.swift:109)
+[ codes.vapor.application ] [ TRACE ] Running on shared EventLoopGroup. Not shutting down EventLoopGroup. (Vapor/DotEnv.swift:62)
+vapor_ws_client: asking for PMCE PMCEConfig {
+  DeflateConfig {agreedParams:AgreedParameters(takeover: WebSocketKit.PMCE.PMCEConfig.ContextTakeoverMode.takeover, maxWindowBits: Optional(15)), zlib:ZlibConf{5, 5}}
+}!
+[ WebSocketClient ] [ DEBUG ] injecting headers for Optional(PMCEConfig {config:agreedParams : AgreedParameters(takeover: WebSocketKit.PMCE.PMCEConfig.ContextTakeoverMode.takeover, maxWindowBits: Optional(15)),
+zlib : ZlibConf{5, 5}}) (WebSocketKit/WebSocketClient.swift:152)
+[ WebSocketClient ] [ DEBUG ] injecting headers for Optional(PMCEConfig {config:agreedParams : AgreedParameters(takeover: WebSocketKit.PMCE.PMCEConfig.ContextTakeoverMode.takeover, maxWindowBits: Optional(15)),
+zlib : ZlibConf{5, 5}}) (WebSocketKit/WebSocketClient.swift:152)
+[ PMCE ] [ DEBUG ] extending ... (WebSocketKit/PMCE.swift:423)
+[ PMCE ] [ DEBUG ] client (WebSocketKit/PMCE.swift:447)
+[ PMCE ] [ DEBUG ] window size: 13 (WebSocketKit/PMCE.swift:450)
+[ PMCE ] [ DEBUG ] compressor ZlibConfiguration(windowSize: 13, compressionLevel: 5, memoryLevel: 5, strategy: CompressNIO.ZlibConfiguration.Strategy.huffmanOnly) (WebSocketKit/PMCE.swift:468)
+[ PMCE ] [ DEBUG ] decompressor ZlibConfiguration(windowSize: 13, compressionLevel: 5, memoryLevel: 5, strategy: CompressNIO.ZlibConfiguration.Strategy.huffmanOnly) (WebSocketKit/PMCE.swift:469)
+vapor_ws_client: CONNECTED to ws://localhost:8080/test-pmce!
+vapor_ws_client: with enabled : true,
+extendedSocketType : client,
+serverConfig : PMCEConfig {
+  DeflateConfig {agreedParams:AgreedParameters(takeover: WebSocketKit.PMCE.PMCEConfig.ContextTakeoverMode.takeover, maxWindowBits: Optional(15)), zlib:ZlibConf{5, 5}}
+},
+clientConfig : PMCEConfig {
+  DeflateConfig {agreedParams:AgreedParameters(takeover: WebSocketKit.PMCE.PMCEConfig.ContextTakeoverMode.takeover, maxWindowBits: Optional(15)), zlib:ZlibConf{5, 5}}
+}
+vapor_ws_client: adding TEXT, BIN handlers...
+vapor_ws_client: preparing test message...
+vapor_ws_client: sending binary message: 6705 bytes.
+[ PMCE ] [ DEBUG ] compressing 6705 bytes for WebSocketOpcode.binary (WebSocketKit/PMCE.swift:524)
+[ PMCE ] [ DEBUG ] SHOLD unpad payload (WebSocketKit/PMCE.swift:531)
+[ PMCE ] [ INFO ] unpaddings (WebSocketKit/PMCE.swift:671)
+[ PMCE ] [ INFO ] unpaddings (WebSocketKit/PMCE.swift:671)
+[ PMCE ] [ DEBUG ] compressed 6705 to 1767 bytes @ 3 ratio from (WebSocketKit/PMCE.swift:551)
+[ PMCE ] [ DEBUG ]  ZlibConf{5, 5} (WebSocketKit/PMCE.swift:556)
+[ PMCE ] [ DEBUG ] in 9.107589721679688e-05 (WebSocketKit/PMCE.swift:559)
+[ PMCE ] [ DEBUG ] not resetting compressor stream. (WebSocketKit/PMCE.swift:566)
+[ WebSocketClient ] [ DEBUG ] injecting headers for nil (WebSocketKit/WebSocketClient.swift:152)
+[ PMCE ] [ DEBUG ] PMCE: created mask key WebSocketMaskingKey(_key: (53, 189, 154, 103)) . (WebSocketKit/PMCE.swift:682)
+[ PMCE ] [ DEBUG ] slice is not nil (WebSocketKit/PMCE.swift:582)
+[ WebSocketClient ] [ DEBUG ] injecting headers for nil (WebSocketKit/WebSocketClient.swift:152)
+vapor_ws_client: sending text message: 6705 bytes.
+[ PMCE ] [ DEBUG ] compressing 6705 bytes for WebSocketOpcode.text (WebSocketKit/PMCE.swift:524)
+[ PMCE ] [ DEBUG ] SHOLD unpad payload (WebSocketKit/PMCE.swift:531)
+[ PMCE ] [ INFO ] unpaddings (WebSocketKit/PMCE.swift:671)
+[ PMCE ] [ INFO ] unpaddings (WebSocketKit/PMCE.swift:671)
+[ PMCE ] [ DEBUG ] compressed 6705 to 1767 bytes @ 3 ratio from (WebSocketKit/PMCE.swift:551)
+[ PMCE ] [ DEBUG ]  ZlibConf{5, 5} (WebSocketKit/PMCE.swift:556)
+[ PMCE ] [ DEBUG ] in 8.296966552734375e-05 (WebSocketKit/PMCE.swift:559)
+[ PMCE ] [ DEBUG ] not resetting compressor stream. (WebSocketKit/PMCE.swift:566)
+[ PMCE ] [ DEBUG ] PMCE: created mask key WebSocketMaskingKey(_key: (134, 223, 64, 11)) . (WebSocketKit/PMCE.swift:682)
+[ PMCE ] [ DEBUG ] slice is not nil (WebSocketKit/PMCE.swift:582)
+[ PMCE ] [ DEBUG ] PMCE: decompressing  3 bytes for WebSocketOpcode.text (WebSocketKit/PMCE.swift:618)
+[ PMCE ] [ DEBUG ] PMCE: config: PMCEConfig {
+  DeflateConfig {agreedParams:AgreedParameters(takeover: WebSocketKit.PMCE.PMCEConfig.ContextTakeoverMode.takeover, maxWindowBits: Optional(15)), zlib:ZlibConf{5, 5}}
+} PMCEConfig {
+  DeflateConfig {agreedParams:AgreedParameters(takeover: WebSocketKit.PMCE.PMCEConfig.ContextTakeoverMode.takeover, maxWindowBits: Optional(15)), zlib:ZlibConf{5, 5}}
+} (WebSocketKit/PMCE.swift:620)
+[ PMCE ] [ DEBUG ] should unpad message (WebSocketKit/PMCE.swift:623)
+[ PMCE ] [ DEBUG ] padding (WebSocketKit/PMCE.swift:664)
+[ PMCE ] [ DEBUG ] deompressed 3 to 1 bytes @ 0 ratio from (WebSocketKit/PMCE.swift:638)
+[ PMCE ] [ DEBUG ]  ZlibConf{5, 5} ZlibConf{5, 5} (WebSocketKit/PMCE.swift:639)
+[ PMCE ] [ DEBUG ] in 0.00017905235290527344 (WebSocketKit/PMCE.swift:642)
+[ PMCE ] [ DEBUG ] PMCE: not restting decompressor stream. (WebSocketKit/PMCE.swift:649)
+vapor_ws_client: Received 1 bytes of TEXT h from ws://localhost:8080/test-pmce
+[ PMCE ] [ DEBUG ] PMCE: decompressing  246 bytes for WebSocketOpcode.text (WebSocketKit/PMCE.swift:618)
+[ PMCE ] [ DEBUG ] PMCE: config: PMCEConfig {
+  DeflateConfig {agreedParams:AgreedParameters(takeover: WebSocketKit.PMCE.PMCEConfig.ContextTakeoverMode.takeover, maxWindowBits: Optional(15)), zlib:ZlibConf{5, 5}}
+} PMCEConfig {
+  DeflateConfig {agreedParams:AgreedParameters(takeover: WebSocketKit.PMCE.PMCEConfig.ContextTakeoverMode.takeover, maxWindowBits: Optional(15)), zlib:ZlibConf{5, 5}}
+} (WebSocketKit/PMCE.swift:620)
+[ PMCE ] [ DEBUG ] should unpad message (WebSocketKit/PMCE.swift:623)
+vapor_ws_client: CONNECTED to ws://localhost:8080/test-no-pmce!
+vapor_ws_client: with NO PMCE
+[ PMCE ] [ DEBUG ] padding (WebSocketKit/PMCE.swift:664)
+vapor_ws_client: adding TEXT, BIN handlers...
+vapor_ws_client: preparing test message...
+vapor_ws_client: sending binary message: 6705 bytes.
+[ PMCE ] [ DEBUG ] deompressed 246 to 831 bytes @ 3 ratio from (WebSocketKit/PMCE.swift:638)
+[ PMCE ] [ DEBUG ]  ZlibConf{5, 5} ZlibConf{5, 5} (WebSocketKit/PMCE.swift:639)
+[ PMCE ] [ DEBUG ] in 0.00019299983978271484 (WebSocketKit/PMCE.swift:642)
+[ PMCE ] [ DEBUG ] PMCE: not restting decompressor stream. (WebSocketKit/PMCE.swift:649)
+vapor_ws_client: Received 831 bytes of TEXT HelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloH from ws://localhost:8080/test-pmce
+[ PMCE ] [ DEBUG ] PMCE: decompressing  3 bytes for WebSocketOpcode.binary (WebSocketKit/PMCE.swift:618)
+[ PMCE ] [ DEBUG ] PMCE: config: PMCEConfig {
+  DeflateConfig {agreedParams:AgreedParameters(takeover: WebSocketKit.PMCE.PMCEConfig.ContextTakeoverMode.takeover, maxWindowBits: Optional(15)), zlib:ZlibConf{5, 5}}
+} PMCEConfig {
+  DeflateConfig {agreedParams:AgreedParameters(takeover: WebSocketKit.PMCE.PMCEConfig.ContextTakeoverMode.takeover, maxWindowBits: Optional(15)), zlib:ZlibConf{5, 5}}
+} (WebSocketKit/PMCE.swift:620)
+[ PMCE ] [ DEBUG ] should unpad message (WebSocketKit/PMCE.swift:623)
+[ PMCE ] [ DEBUG ] padding (WebSocketKit/PMCE.swift:664)
+[ PMCE ] [ DEBUG ] deompressed 3 to 1 bytes @ 0 ratio from (WebSocketKit/PMCE.swift:638)
+[ PMCE ] [ DEBUG ]  ZlibConf{5, 5} ZlibConf{5, 5} (WebSocketKit/PMCE.swift:639)
+[ PMCE ] [ DEBUG ] in 0.0001729726791381836 (WebSocketKit/PMCE.swift:642)
+[ PMCE ] [ DEBUG ] PMCE: not restting decompressor stream. (WebSocketKit/PMCE.swift:649)
+vapor_ws_client: Received 1 bytes as binary from ws://localhost:8080/test-pmce
+[ PMCE ] [ DEBUG ] PMCE: decompressing  246 bytes for WebSocketOpcode.binary (WebSocketKit/PMCE.swift:618)
+[ PMCE ] [ DEBUG ] PMCE: config: PMCEConfig {
+  DeflateConfig {agreedParams:AgreedParameters(takeover: WebSocketKit.PMCE.PMCEConfig.ContextTakeoverMode.takeover, maxWindowBits: Optional(15)), zlib:ZlibConf{5, 5}}
+} PMCEConfig {
+  DeflateConfig {agreedParams:AgreedParameters(takeover: WebSocketKit.PMCE.PMCEConfig.ContextTakeoverMode.takeover, maxWindowBits: Optional(15)), zlib:ZlibConf{5, 5}}
+} (WebSocketKit/PMCE.swift:620)
+[ PMCE ] [ DEBUG ] should unpad message (WebSocketKit/PMCE.swift:623)
+[ PMCE ] [ DEBUG ] padding (WebSocketKit/PMCE.swift:664)
+vapor_ws_client: sending text message: 6705 bytes.
+[ PMCE ] [ DEBUG ] deompressed 246 to 831 bytes @ 3 ratio from (WebSocketKit/PMCE.swift:638)
+[ PMCE ] [ DEBUG ]  ZlibConf{5, 5} ZlibConf{5, 5} (WebSocketKit/PMCE.swift:639)
+[ PMCE ] [ DEBUG ] in 0.000186920166015625 (WebSocketKit/PMCE.swift:642)
+[ PMCE ] [ DEBUG ] PMCE: not restting decompressor stream. (WebSocketKit/PMCE.swift:649)
+vapor_ws_client: Received 831 bytes as binary from ws://localhost:8080/test-pmce
+vapor_ws_client: Received 5 bytes of TEXT from ws://localhost:8080/test-no-pmce hello
+vapor_ws_client: Received 835 bytes of TEXT from ws://localhost:8080/test-no-pmce HelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHello
+vapor_ws_client: Received 5 from ws://localhost:8080/test-no-pmce  bytes as binary
+vapor_ws_client: Received 835 from ws://localhost:8080/test-no-pmce  bytes as binary
+[ codes.vapor.application ] [ NOTICE ] Server starting on http://0.0.0.0:8081 (Vapor/HTTPServer.swift:298)
+
+[ codes.vapor.application ] [ DEBUG ] Application shutting down (Vapor/Application.swift:132)
+[ codes.vapor.application ] [ TRACE ] Shutting down providers (Vapor/Application.swift:134)
+[ codes.vapor.application ] [ TRACE ] Clearing Application storage (Vapor/Application.swift:138)
+[ codes.vapor.application ] [ DEBUG ] Requesting HTTP server shutdown (Vapor/HTTPServer.swift:316)
+[ codes.vapor.application ] [ DEBUG ] HTTP server shutting down (Vapor/HTTPServer.swift:322)
+[ codes.vapor.application ] [ TRACE ] Shutting down EventLoopGroup (Vapor/Application.swift:146)
+[ PMCE ] [ DEBUG ] PMCE: stopping compressor stream... (WebSocketKit/PMCE.swift:493)
+[ PMCE ] [ ERROR ] PMCE:error finishing stream(s) : internalError (WebSocketKit/PMCE.swift:497)
+[ PMCE ] [ DEBUG ] PMCE: stopping decompressor stream... (WebSocketKit/PMCE.swift:501)
+[ codes.vapor.application ] [ TRACE ] Application shutdown complete (Vapor/Application.swift:155)
+[ codes.vapor.application ] [ TRACE ] Application deinitialized, goodbye! (Vapor/Application.swift:159)
